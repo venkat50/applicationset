@@ -24,6 +24,6 @@ spec:
         path: "examples/git-generator-files-discovery/apps/guestbook"
       destination:
         server: '{{cluster.address}}'
-        namespace: '{{cluster.namespace}}'
+        namespace: '{{cluster.name}}'
       syncPolicy:  
         automated: {}
