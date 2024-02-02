@@ -5,20 +5,25 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: https://github.com/argoproj/applicationset.git
+        repoURL: https://github.com/venkat50/applicationset.git
         revision: HEAD
         files:
         - path: "examples/git-generator-files-discovery/cluster-config/**/config.json"
   template:
     metadata:
       name: '{{cluster.name}}-guestbook'
+      labels: 
+        harness.io/envRef: '{{envTag}}'
+        harness.io/serviceRef: '{{serviceTag}}'
+        harness.io/buildRef: '{{releaseTag}}'
     spec:
-      project: default
+      project: bd0e5225
       source:
         repoURL: https://github.com/argoproj/applicationset.git
         targetRevision: HEAD
         path: "examples/git-generator-files-discovery/apps/guestbook"
       destination:
-        server: https://kubernetes.default.svc
-        #server: '{{cluster.address}}'
-        namespace: guestbook
+        server: '{{cluster.address}}'
+        namespace: '{{cluster.namespace}}'
+      syncPolicy:  
+        automated: {}
