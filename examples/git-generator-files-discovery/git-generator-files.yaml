@@ -12,10 +12,6 @@ spec:
   template:
     metadata:
       name: '{{cluster.name}}-guestbook'
-      labels: 
-        harness.io/envRef: '{{envTag}}'
-        harness.io/serviceRef: '{{serviceTag}}'
-        harness.io/buildRef: '{{releaseTag}}'
     spec:
       project: bd0e5225
       source:
