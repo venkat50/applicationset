@@ -19,7 +19,7 @@ spec:
     spec:
       project: bd0e5225
       source:
-        repoURL: https://github.com/argoproj/applicationset.git
+        repoURL: https://github.com/venkat50/applicationset.git
         targetRevision: HEAD
         path: "examples/git-generator-files-discovery/apps/guestbook"
       destination:
